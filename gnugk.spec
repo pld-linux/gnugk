@@ -43,7 +43,7 @@ NO_MYSQL=1; export NO_MYSQL
 PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-	CC=gcc2 CPLUS=g++2 \
+##	CC=gcc2 CPLUS=g++2 \
 	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}"
 
 %install
