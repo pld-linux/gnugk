@@ -1,3 +1,4 @@
+
 Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
