@@ -1,0 +1,12 @@
+diff -urN openh323gk.orig/Makefile openh323gk/Makefile
+--- openh323gk.orig/Makefile	Tue Jul  9 18:27:03 2002
++++ openh323gk/Makefile	Tue Jul  9 18:34:12 2002
+@@ -16,7 +16,7 @@
+ OPENH323DIR=$(HOME)/openh323
+ endif
+ 
+-H323_INCDIR	= ${OPENH323DIR}/include
++H323_INCDIR	= ${OPENH323DIR}/include/openh323
+ H323_LIBDIR	= ${OPENH323DIR}/lib
+ H323_LIB	= h323_$(PLATFORM_TYPE)_$(OBJ_SUFFIX)
+ 
