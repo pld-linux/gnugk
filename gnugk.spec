@@ -43,7 +43,7 @@ PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
 	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}"
-##	CC=gcc2 CPLUS=g++2 \
+	CC="%{__cc}" CPLUS="%{__cxx}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
