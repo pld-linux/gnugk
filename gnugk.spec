@@ -12,7 +12,7 @@ Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-openh323_headers.patch
-URL:		http://www.gnugk.org
+URL:		http://www.gnugk.org/
 BuildRequires:	openh323-devel >= 1.10.4
 Prereq:		/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
