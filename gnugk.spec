@@ -35,7 +35,6 @@ gdzie pracuje.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
 
 %build
 NO_LDAP=1; export NO_LDAP
@@ -43,8 +42,8 @@ NO_MYSQL=1; export NO_MYSQL
 PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-##	CC=gcc2 CPLUS=g++2 \
 	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}"
+##	CC=gcc2 CPLUS=g++2 \
 
 %install
 rm -rf $RPM_BUILD_ROOT
