@@ -4,7 +4,7 @@ Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
 Version:	2.0.2
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.gnugk.org/download/gk-%{version}.tgz
 # Source0-md5:	eb98e00e9fb767bde4975902310e3e60
