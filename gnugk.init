@@ -16,9 +16,13 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin
 . /etc/sysconfig/gnugk
 
 # Check that networking is up.
-if is_no "${NETWORKING}"; then
-        msg_Network_Down gnugk
-        exit 1
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network ]; then
+		msg_network_down "OpenH323 gatekeeper"
+		exit 1
+	fi
+else
+	exit 0
 fi
 
 TMPDIR="/tmp"; export TMPDIR
@@ -27,46 +31,49 @@ cd /
 # Check that gatekeeper.ini exists
 [ -f /etc/gnugk.ini ] || exit 0
 
+RETVAL=0
 case "$1" in
-    start)
-        if [ ! -f /var/lock/subsys/gnugk ]; then
+  start)
+	if [ ! -f /var/lock/subsys/gnugk ]; then
 		msg_starting "OpenH323 gatekeeper"
 		daemon "su nobody -s /bin/sh -c '/usr/sbin/gnugk -c /etc/gnugk.ini &'"
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/gnugk
-        else
-                msg_Already_Running gnugk
-                exit 1
-        fi
+	else
+		msg_already_running "OpenH323 gatekeeper"
+	fi
 	;;
-    stop)
-        if [ -f /var/lock/subsys/gnugk ]; then
-                msg_stopping "OpenH323 gatekeeper"
+  stop)
+	if [ -f /var/lock/subsys/gnugk ]; then
+		msg_stopping "OpenH323 gatekeeper"
 		killproc gnugk
 		rm -f /var/lock/subsys/gnugk >/dev/null 2>&1
-        else
-                msg_Not_Running gnugk
-                exit 1
-        fi
+	else
+		msg_not_running "OpenH323 gatekeeper"
+	fi
 	;;
-   status)
-    	status gnugk
+  status)
+	status gnugk
 	exit $?
 	;;
   restart)
 	$0 stop
 	$0 start
+	exit $?
 	;;
-  reload)
+  reload|force-reload)
 	if [ -f /var/lock/subsys/gnugk ]; then
-	        msg_reloading "OpenH323 gatekeeper"
-	        killproc gnugk -HUP
+		msg_reloading "OpenH323 gatekeeper"
+		killproc gnugk -HUP
+		RETVAL=$?
 	else
-	        msg_Not_Running "OpenH323 gatekeeper"
-	        exit 1
-        fi
+		msg_not_running "OpenH323 gatekeeper" >&2
+		exit 7
+	fi
 	;;
   *)
-	msg_Usage "$0 {start|stop|restart|reload|status}"
-	exit 1
+	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	exit 3
 esac
+
+exit $RETVAL
