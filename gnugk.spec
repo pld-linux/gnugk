@@ -1,8 +1,8 @@
 Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
-Version:	2.1b1
-Release:	1
+Version:	2.0a
+Release:	2
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.gnugk.org/download/gk-%{version}.tgz
@@ -25,17 +25,17 @@ way you can call "jan" instead of knowing which IP address he
 currently works on.
 
 %description -l pl
-Zarz±dca bramki kontroluje wszystkich klientów H.323 (koñcówki takie 
-jak np. MS Netmeeting) w swojej strefie. Jego najwa¿niejsz± funkcj± 
-jest translacja adresów pomiêdzy symbolicznymi aliasami a adresami IP. 
-W ten sposób mo¿esz wo³aæ "jan" zamiast podawaæ adres IP stanowiska
+Zarz±dca bramki kontroluje wszystkich klientów H.323 (koñcówki podobne
+do MS Netmeeting) w swojej strefie. Jego najwa¿niejsz± funkcj± jest
+translacja adresów pomiêdzy symbolicznymi aliasami a adresami IP. W
+ten sposób mo¿esz wo³aæ "jan" zamiast podawaæ adres IP stanowiska
 gdzie pracuje.
 
 %prep
 %setup -qn openh323gk
 %patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 NO_LDAP=1; export NO_LDAP
