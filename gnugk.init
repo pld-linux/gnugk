@@ -31,6 +31,7 @@ cd /
 # Check that gatekeeper.ini exists
 [ -f /etc/gnugk.ini ] || exit 0
 
+RETVAL=0
 case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/gnugk ]; then
@@ -40,7 +41,6 @@ case "$1" in
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/gnugk
 	else
 		msg_already_running "OpenH323 gatekeeper"
-		exit 1
 	fi
 	;;
   stop)
@@ -50,7 +50,6 @@ case "$1" in
 		rm -f /var/lock/subsys/gnugk >/dev/null 2>&1
 	else
 		msg_not_running "OpenH323 gatekeeper"
-		exit 1
 	fi
 	;;
   status)
@@ -60,20 +59,21 @@ case "$1" in
   restart)
 	$0 stop
 	$0 start
+	exit $?
 	;;
-  reload)
+  reload|force-reload)
 	if [ -f /var/lock/subsys/gnugk ]; then
 		msg_reloading "OpenH323 gatekeeper"
 		killproc gnugk -HUP
 		RETVAL=$?
 	else
-		msg_not_running "OpenH323 gatekeeper"
-		exit 1
+		msg_not_running "OpenH323 gatekeeper" >&2
+		exit 7
 	fi
 	;;
   *)
-	msg_usage "$0 {start|stop|restart|reload|status}"
-	exit 1
+	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	exit 3
 esac
 
 exit $RETVAL
