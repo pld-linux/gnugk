@@ -7,6 +7,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.gnugk.org/download/gk-%{version}.tgz
+# Source0-md5:	eb98e00e9fb767bde4975902310e3e60
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-mak_files.patch
