@@ -79,7 +79,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.txt
+%doc *.txt docs etc
 %attr(755,root,root) %{_sbindir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gnugk.ini
 %attr(754,root,root) /etc/rc.d/init.d/gnugk
