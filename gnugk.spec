@@ -24,10 +24,10 @@ way you can call "jan" instead of knowing which IP address he
 currently works on.
 
 %description -l pl
-Zarz±dca bramki kontroluje wszystkich klientów H.323 (koñcówki podobne
-do MS Netmeeting) w swojej strefie. Jego najwa¿niejsz± funkcj± jest
-translacja adresów pomiêdzy symbolicznymi aliasami a adresami IP. W
-ten sposób mo¿esz wo³aæ "jan" zamiast podawaæ adres IP stanowiska
+Zarz±dca bramki kontroluje wszystkich klientów H.323 (koñcówki takie 
+jak np. MS Netmeeting) w swojej strefie. Jego najwa¿niejsz± funkcj± 
+jest translacja adresów pomiêdzy symbolicznymi aliasami a adresami IP. 
+W ten sposób mo¿esz wo³aæ "jan" zamiast podawaæ adres IP stanowiska
 gdzie pracuje.
 
 %prep
