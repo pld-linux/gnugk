@@ -1,0 +1,72 @@
+#!/bin/sh
+#
+# chkconfig:	345 91 35
+# description:	Starts and stops the OpenH323 gatekeeper 
+#
+
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Demon specified configuration.
+. /etc/sysconfig/gnugk
+
+# Check that networking is up.
+if is_no "${NETWORKING}"; then
+        msg_Network_Down gnugk
+        exit 1
+fi
+
+TMPDIR="/tmp"; export TMPDIR
+cd /
+
+# Check that gatekeeper.ini exists
+[ -f /etc/gnugk.ini ] || exit 0
+
+case "$1" in
+    start)
+        if [ ! -f /var/lock/subsys/gnugk ]; then
+		msg_starting "OpenH323 gatekeeper"
+		daemon "su nobody -s /bin/sh -c '/usr/sbin/gnugk -c /etc/gnugk.ini &'"
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/gnugk
+        else
+                msg_Already_Running gnugk
+                exit 1
+        fi
+	;;
+    stop)
+        if [ -f /var/lock/subsys/gnugk ]; then
+                msg_stopping "OpenH323 gatekeeper"
+		killproc gnugk
+		rm -f /var/lock/subsys/gnugk >/dev/null 2>&1
+        else
+                msg_Not_Running gnugk
+                exit 1
+        fi
+	;;
+   status)
+    	status gnugk
+	exit $?
+	;;
+  restart)
+	$0 stop
+	$0 start
+	;;
+  reload)
+	if [ -f /var/lock/subsys/gnugk ]; then
+	        msg_reloading "OpenH323 gatekeeper"
+	        killproc gnugk -HUP
+	else
+	        msg_Not_Running "OpenH323 gatekeeper"
+	        exit 1
+        fi
+	;;
+  *)
+	msg_Usage "$0 {start|stop|restart|reload|status}"
+	exit 1
+esac
