@@ -2,7 +2,7 @@ Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
 Version:	2.0.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.gnugk.org/download/gk-%{version}.tgz
@@ -11,8 +11,9 @@ Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-openh323_headers.patch
+Patch2:		%{name}-mak_variable.patch
 URL:		http://www.gnugk.org/
-BuildRequires:	openh323-devel >= 1.10.4
+BuildRequires:	openh323-devel >= 1.12.0
 %requires_eq	openh323
 PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
@@ -36,6 +37,7 @@ gdzie pracuje.
 %setup -qn openh323gk
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 NO_LDAP=1; export NO_LDAP
@@ -43,8 +45,9 @@ NO_MYSQL=1; export NO_MYSQL
 PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}"
-	CC="%{__cc}" CPLUS="%{__cxx}"
+	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}" \
+	CC="%{__cc}" CPLUS="%{__cxx}" \
+	OH323MAK=%{_prefix}/share/openh323/openh323u.mak
 
 %install
 rm -rf $RPM_BUILD_ROOT
