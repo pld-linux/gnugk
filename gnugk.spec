@@ -13,6 +13,7 @@ Source2:	%{name}.sysconfig
 Patch1:		%{name}-openh323_headers.patch
 Patch2:		%{name}-mak_variable.patch
 URL:		http://www.gnugk.org/
+BuildRequires:	speex-devel
 BuildRequires:	openh323-devel >= 1.12.0
 %requires_eq	openh323
 PreReq:		rc-scripts
