@@ -1,7 +1,7 @@
 Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
-Version:	2.0a
+Version:	2.1b1
 Release:	1
 License:	GPL
 Group:		Applications/Communications
@@ -12,9 +12,10 @@ Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-openh323_headers.patch
 Patch2:		%{name}-openh323_libname.patch
 URL:		http://www.gnugk.org
-BuildRequires:	openh323-devel >= 1.9.4-1
+BuildRequires:	openh323-devel >= 1.10.0
 Prereq:		/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+%requires_eq	openh323
 
 %description
 A H.323 gatekeeper controls all H.323 clients (endpoints like MS
@@ -33,8 +34,8 @@ gdzie pracuje.
 %prep
 %setup -qn openh323gk
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
+#%patch1 -p1
+#%patch2 -p1
 
 %build
 NO_LDAP=1; export NO_LDAP
