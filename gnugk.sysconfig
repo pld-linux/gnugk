@@ -1,0 +1,4 @@
+# Customized setings for gnugk
+
+# Define nice level for gnugk
+SERVICE_RUN_NICE_LEVEL="+5"
