@@ -1,4 +1,3 @@
-
 Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
@@ -14,9 +13,10 @@ Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-openh323_headers.patch
 URL:		http://www.gnugk.org/
 BuildRequires:	openh323-devel >= 1.10.4
-Prereq:		/sbin/chkconfig
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %requires_eq	openh323
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A H.323 gatekeeper controls all H.323 clients (endpoints like MS
