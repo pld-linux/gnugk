@@ -1,15 +1,3 @@
-diff -urN openh323gk.orig/Makefile openh323gk/Makefile
---- openh323gk.orig/Makefile	Tue Jul  9 18:27:03 2002
-+++ openh323gk/Makefile	Tue Jul  9 18:30:29 2002
-@@ -149,7 +149,7 @@
- PWLIBDIR=$(HOME)/pwlib
- endif
- 
--include $(PWLIBDIR)/make/ptlib.mak
-+include $(PWLIBDIR)/share/pwlib/ptlib.mak
- 
- ifdef HAS_LEVEL_TWO_LDAPAPI
- TARGET_LIBS += $(LDAP_LIB)
 diff -urN openh323gk.orig/ldap/src/Makefile openh323gk/ldap/src/Makefile
 --- openh323gk.orig/ldap/src/Makefile	Tue Jul  9 18:27:03 2002
 +++ openh323gk/ldap/src/Makefile	Tue Jul  9 18:32:34 2002

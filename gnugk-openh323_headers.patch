@@ -1,12 +1,12 @@
 diff -urN openh323gk.orig/Makefile openh323gk/Makefile
---- openh323gk.orig/Makefile	Tue Jul  9 18:27:03 2002
-+++ openh323gk/Makefile	Tue Jul  9 18:34:12 2002
-@@ -16,7 +16,7 @@
+--- openh323gk.orig/Makefile	Tue Nov 19 21:26:18 2002
++++ openh323gk/Makefile	Tue Nov 19 21:34:06 2002
+@@ -139,7 +139,7 @@
  OPENH323DIR=$(HOME)/openh323
  endif
  
--H323_INCDIR	= ${OPENH323DIR}/include
-+H323_INCDIR	= ${OPENH323DIR}/include/openh323
- H323_LIBDIR	= ${OPENH323DIR}/lib
- H323_LIB	= h323_$(PLATFORM_TYPE)_$(OBJ_SUFFIX)
+-include $(OPENH323DIR)/openh323u.mak
++include $(OPENH323DIR)/share/misc/openh323u.mak
  
+ 
+ ifdef HAS_LEVEL_TWO_LDAPAPI
