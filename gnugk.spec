@@ -1,15 +1,15 @@
 Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
-Version:	2.0.5
-Release:	1
+Version:	2.0.8
+Release:	0.5
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://dl.sourceforge.net/openh323gk/gk-%{version}.tgz
-# Source0-md5:	e719a6b59de76417ff31bf6c0da2212f
+Source0:	http://dl.sourceforge.net/openh323gk/%{name}-%{version}.tgz
+# Source0-md5:	770309df3d631d6c94dfb3a95a9be25e
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
-Patch0:		%{name}-mak_files.patch
+#Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-openh323_headers.patch
 Patch2:		%{name}-mak_variable.patch
 URL:		http://www.gnugk.org/
@@ -35,7 +35,7 @@ gdzie pracuje.
 
 %prep
 %setup -qn openh323gk
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
