@@ -2,7 +2,7 @@ Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
 Version:	2.0.5
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/openh323gk/gk-%{version}.tgz
@@ -47,7 +47,8 @@ OPENH323DIR=%{_prefix}; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
 	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}" \
 	CC="%{__cc}" CPLUS="%{__cxx}" \
-	OH323MAK=%{_prefix}/share/openh323/openh323u.mak
+	OH323MAK=%{_prefix}/share/openh323/openh323u.mak \
+	VERSION_FILE=%{_prefix}/include/openh323/version.h
 
 %install
 rm -rf $RPM_BUILD_ROOT
