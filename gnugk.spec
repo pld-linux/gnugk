@@ -55,8 +55,8 @@ install obj_*/%{name} $RPM_BUILD_ROOT%{_sbindir}
 #install etc/gnugk.ini $RPM_BUILD_ROOT%{_sysconfdir}
 echo ";; See example config files in %{_docdir}/%{name}-%{version}" >$RPM_BUILD_ROOT%{_sysconfdir}/gnugk.ini
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/gnugk
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/gnugk
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/gnugk
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/gnugk
 
 %clean
 rm -rf $RPM_BUILD_ROOT
