@@ -1,8 +1,8 @@
 Summary:	H.323 gatekeeper
 Summary(pl):	Zarz±dca bramki H.323
 Name:		gnugk
-Version:	2.0a
-Release:	3
+Version:	2.1b1
+Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://www.gnugk.org/download/gk-%{version}.tgz
