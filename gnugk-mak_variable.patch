@@ -1,0 +1,13 @@
+--- ./Makefile.org	Thu Aug  7 10:35:27 2003
++++ ./Makefile	Thu Aug  7 10:39:29 2003
+@@ -139,7 +139,9 @@
+ OPENH323DIR=$(HOME)/openh323
+ endif
+ 
+-include $(OPENH323DIR)/share/misc/openh323u.mak
++OH323MAK	= $(OPENH323DIR)/share/misc/openh323u.mak
++
++include $(OH323MAK)
+ 
+ ifdef LARGE_FDSET
+ STDCCFLAGS_stub	:= $(STDCCFLAGS)
