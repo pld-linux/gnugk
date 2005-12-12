@@ -13,11 +13,11 @@ Source2:	%{name}.sysconfig
 Patch1:		%{name}-openh323_headers.patch
 Patch2:		%{name}-mak_variable.patch
 URL:		http://www.gnugk.org/
-BuildRequires:	speex-devel
 BuildRequires:	openh323-devel >= 1.12.0
+BuildRequires:	speex-devel
 %requires_eq	openh323
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -87,6 +87,6 @@ fi
 %defattr(644,root,root,755)
 %doc *.txt docs etc
 %attr(755,root,root) %{_sbindir}/*
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/gnugk.ini
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/gnugk
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gnugk.ini
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/gnugk
 %attr(754,root,root) /etc/rc.d/init.d/gnugk
