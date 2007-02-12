@@ -1,5 +1,5 @@
 Summary:	H.323 gatekeeper
-Summary(pl):	Zarz±dca bramki H.323
+Summary(pl.UTF-8):   ZarzÄ…dca bramki H.323
 Name:		gnugk
 Version:	2.0.8
 Release:	0.5
@@ -27,11 +27,11 @@ translation between symbolic alias addresses and IP addresses. This
 way you can call "jan" instead of knowing which IP address he
 currently works on.
 
-%description -l pl
-Zarz±dca bramki kontroluje wszystkich klientów H.323 (koñcówki podobne
-do MS Netmeeting) w swojej strefie. Jego najwa¿niejsz± funkcj± jest
-translacja adresów pomiêdzy symbolicznymi aliasami a adresami IP. W
-ten sposób mo¿esz wo³aæ "jan" zamiast podawaæ adres IP stanowiska
+%description -l pl.UTF-8
+ZarzÄ…dca bramki kontroluje wszystkich klientÃ³w H.323 (koÅ„cÃ³wki podobne
+do MS Netmeeting) w swojej strefie. Jego najwaÅ¼niejszÄ… funkcjÄ… jest
+translacja adresÃ³w pomiÄ™dzy symbolicznymi aliasami a adresami IP. W
+ten sposÃ³b moÅ¼esz woÅ‚aÄ‡ "jan" zamiast podawaÄ‡ adres IP stanowiska
 gdzie pracuje.
 
 %prep
