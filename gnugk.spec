@@ -1,5 +1,5 @@
 Summary:	H.323 gatekeeper
-Summary(pl.UTF-8):   Zarządca bramki H.323
+Summary(pl.UTF-8):	Zarządca bramki H.323
 Name:		gnugk
 Version:	2.0.8
 Release:	0.5
