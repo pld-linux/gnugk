@@ -36,7 +36,7 @@ gdzie pracuje.
 
 %prep
 %setup -qn openh323gk
-#%patch0 -p1
+#%%patch0 -p1
 %patch -P1 -p1
 %patch -P2 -p1
 
